@@ -1,0 +1,59 @@
+#User function Template for python3
+import heapq
+class Solution:
+    def getNthUglyNo(self,n):
+        # code here
+        res = set([1])
+        li = list(res)
+        heapq.heapify(li)
+        ans = []
+        ct = 0
+        while(ct < n):
+            
+            val = heapq.heappop(li)
+            ans.append(val)
+            ct += 1
+            new_val = val*2
+            sz = len(res)
+            res.add(new_val)
+            new_sz = len(res)
+            if(sz != new_sz):
+                heapq.heappush(li,new_val)
+                
+            new_val = val*3
+            sz = len(res)
+            res.add(new_val)
+            new_sz = len(res)
+            if(sz != new_sz):
+                heapq.heappush(li,new_val)
+                
+            new_val = val*5
+            sz = len(res)
+            res.add(new_val)
+            new_sz = len(res)
+            if(sz != new_sz):
+                heapq.heappush(li,new_val)
+                
+        
+        return ans[n-1]
+        
+        
+                
+        
+            
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+
+
+if __name__ == '__main__':
+    tc = int(input())
+    while tc > 0:
+        n = int(input())
+        ob = Solution()
+        ans = ob.getNthUglyNo(n);
+        print(ans)
+        tc -= 1
+
+# } Driver Code Ends

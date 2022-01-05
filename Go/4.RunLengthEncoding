@@ -1,0 +1,27 @@
+#Your task is to complete this function
+#Function should return complete string
+def encode(arr):
+    # Code here
+    res = []
+    prev = arr[0]
+    ct = 0
+    for i in arr:
+        if(i == prev):
+            ct += 1
+        else:
+            res.append(prev)
+            res.append(str(ct))
+            ct = 1
+            prev = i
+    res.append(prev)
+    res.append(str(ct))
+    return "".join(res)
+#{ 
+#  Driver Code Starts
+#Your code will prepended here
+if __name__=='__main__':
+    t=int(input())
+    for i in range(t):
+        arr=input().strip()
+        print (encode(arr))
+# } Driver Code Ends

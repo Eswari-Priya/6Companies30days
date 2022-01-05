@@ -1,0 +1,39 @@
+#User function Template for python3
+
+class Solution:
+    def findTwoElement( self,arr, n): 
+        # code here
+        i = 0
+        while(i < n):
+            ind = arr[i]-1
+            if(arr[ind] == arr[i]):
+                i += 1
+            else:
+                tmp = arr[ind]
+                arr[ind] = arr[i]
+                arr[i] = tmp
+        res = []
+        for i in range(1,n+1):
+            if(arr[i-1] != i):
+                res.append(arr[i-1])
+                res.append(i)
+                break
+        return res
+            
+                
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__': 
+
+    tc=int(input())
+    while tc > 0:
+        n=int(input())
+        arr=list(map(int, input().strip().split()))
+        ob = Solution()
+        ans=ob.findTwoElement(arr, n)
+        print(str(ans[0])+" "+str(ans[1]))
+        tc=tc-1
+# } Driver Code Ends

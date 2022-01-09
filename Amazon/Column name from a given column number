@@ -1,0 +1,30 @@
+#User function Template for python3
+
+class Solution:
+    def colName (self, n):
+        # your code here
+        res = ""
+        ascA = ord('A')
+        while(n>0):
+            rem = n%26
+            if(rem == 0):
+                res = res + 'Z'
+                n = n//26-1
+            else:
+                res = res+chr(rem+ascA-1)
+                n = n//26
+        res = reversed(res)
+        return "".join(res)
+        
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+t = int (input ())
+for tc in range (t):
+    n = int (input ())
+    ob = Solution()
+    print (ob.colName (n))
+    
+
+# } Driver Code Ends
